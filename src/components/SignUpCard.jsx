@@ -20,6 +20,7 @@ import { useSetRecoilState } from "recoil";
 import authScreenAtom from "../atoms/authAtom";
 import useShowToast from "../hooks/useShowToast";
 import userAtom from "../atoms/userAtom";
+import Cookies from "js-cookie";
 
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
@@ -49,13 +50,14 @@ export default function SignupCard() {
         }
       );
       const data = await res.json();
-
+      Cookies.set("jwt", data.Token, { expires: 15 });
       if (data.error) {
         showToast("Error", data.error, "error");
         return;
       }
 
       localStorage.setItem("user-threads", JSON.stringify(data));
+
       setUser(data);
     } catch (error) {
       showToast("Error", error, "error");

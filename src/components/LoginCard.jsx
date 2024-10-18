@@ -50,6 +50,7 @@ export default function LoginCard() {
         return;
       }
       localStorage.setItem("user-threads", JSON.stringify(data));
+      Cookies.set("jwt", data.Token, { expires: 15 });
       setUser(data);
     } catch (error) {
       showToast("Error", error, "error");

@@ -3,6 +3,7 @@ import { useSetRecoilState } from "recoil";
 import userAtom from "../atoms/userAtom";
 import useShowToast from "../hooks/useShowToast";
 import { FiLogOut } from "react-icons/fi";
+import Cookies from "js-cookie";
 
 const LogoutButton = () => {
   const setUser = useSetRecoilState(userAtom);
@@ -27,6 +28,7 @@ const LogoutButton = () => {
       }
 
       localStorage.removeItem("user-threads");
+      Cookies.set("jwt", "", { expires: 1 });
       setUser(null);
     } catch (error) {
       showToast("Error", error, "error");
