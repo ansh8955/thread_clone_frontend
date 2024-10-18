@@ -34,13 +34,16 @@ export default function LoginCard() {
   const handleLogin = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(inputs),
-      });
+      const res = await fetch(
+        "https://thread-backend-hgrz.onrender.com/api/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(inputs),
+        }
+      );
       const data = await res.json();
       if (data.error) {
         showToast("Error", data.error, "error");

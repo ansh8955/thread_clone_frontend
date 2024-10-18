@@ -11,10 +11,13 @@ export const SettingsPage = () => {
       return;
 
     try {
-      const res = await fetch("/api/users/freeze", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-      });
+      const res = await fetch(
+        "https://thread-backend-hgrz.onrender.com/api/users/freeze",
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       const data = await res.json();
 
       if (data.error) {

@@ -10,12 +10,15 @@ const LogoutButton = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("/api/users/logout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "https://thread-backend-hgrz.onrender.com/api/users/logout",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await res.json();
 
       if (data.error) {

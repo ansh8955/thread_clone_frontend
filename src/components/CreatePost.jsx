@@ -57,17 +57,20 @@ const CreatePost = () => {
   const handleCreatePost = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/posts/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          postedBy: user._id,
-          text: postText,
-          img: imgUrl,
-        }),
-      });
+      const res = await fetch(
+        "https://thread-backend-hgrz.onrender.com/api/posts/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            postedBy: user._id,
+            text: postText,
+            img: imgUrl,
+          }),
+        }
+      );
 
       const data = await res.json();
       if (data.error) {

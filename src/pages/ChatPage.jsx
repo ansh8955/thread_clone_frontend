@@ -57,7 +57,9 @@ const ChatPage = () => {
   useEffect(() => {
     const getConversations = async () => {
       try {
-        const res = await fetch("/api/messages/conversations");
+        const res = await fetch(
+          "https://thread-backend-hgrz.onrender.com/api/messages/conversations"
+        );
         const data = await res.json();
         if (data.error) {
           showToast("Error", data.error, "error");
@@ -79,7 +81,9 @@ const ChatPage = () => {
     e.preventDefault();
     setSearchingUser(true);
     try {
-      const res = await fetch(`/api/users/profile/${searchText}`);
+      const res = await fetch(
+        `https://thread-backend-hgrz.onrender.com/api/users/profile/${searchText}`
+      );
       const searchedUser = await res.json();
       if (searchedUser.error) {
         showToast("Error", searchedUser.error, "error");
