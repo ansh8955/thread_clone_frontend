@@ -18,6 +18,7 @@ const Header = () => {
 
   return (
     <Flex justifyContent={"space-between"} mt={6} mb="12">
+      {user && <div>Aniket</div> && console.log("user is present")}
       {user && (
         <Link as={RouterLink} to="/">
           <AiFillHome size={24} />
