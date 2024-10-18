@@ -18,7 +18,7 @@ export const SocketContextProvider = ({ children }) => {
     if (!user?._id) return; // Only connect if userId exists
 
     // Replace "/" with your backend URL if backend is hosted separately
-    const socket = io("https://thread-clone-new-mxcp.onrender.com", {
+    const socket = io("https://thread-backend-hgrz.onrender.com", {
       query: {
         userId: user._id, // Only connect when user._id exists
       },
