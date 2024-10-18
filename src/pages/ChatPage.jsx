@@ -57,8 +57,15 @@ const ChatPage = () => {
   useEffect(() => {
     const getConversations = async () => {
       try {
+        const Authorization = JSON.parse(localStorage.getItem("Token"));
         const res = await fetch(
-          "https://thread-backend-hgrz.onrender.com/api/messages/conversations"
+          "https://thread-backend-hgrz.onrender.com/api/messages/conversations",
+          {
+            method: "GET",
+            headers: {
+              token: Authorization,
+            },
+          }
         );
         const data = await res.json();
         if (data.error) {

@@ -37,12 +37,14 @@ export default function UpdateProfilePage() {
     if (updating) return;
     setUpdating(true);
     try {
+      const Authorization = JSON.parse(localStorage.getItem("Token"));
       const res = await fetch(
         `https://thread-backend-hgrz.onrender.com/api/users/update/${user._id}`,
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
+            token: Authorization,
           },
           body: JSON.stringify({ ...inputs, profilePic: imgUrl }),
         }

@@ -41,12 +41,14 @@ const Actions = ({ post }) => {
     if (isLiking) return;
     setIsLiking(true);
     try {
+      const Authorization = JSON.parse(localStorage.getItem("Token"));
       const res = await fetch(
         "https://thread-backend-hgrz.onrender.com/api/posts/like/" + post._id,
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
+            token: Authorization,
           },
         }
       );
@@ -91,12 +93,14 @@ const Actions = ({ post }) => {
     if (isReplying) return;
     setIsReplying(true);
     try {
+      const Authorization = JSON.parse(localStorage.getItem("Token"));
       const res = await fetch(
         "https://thread-backend-hgrz.onrender.com/api/posts/reply/" + post._id,
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
+            token: Authorization,
           },
           body: JSON.stringify({ text: reply }),
         }

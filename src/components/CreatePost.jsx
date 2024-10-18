@@ -57,12 +57,14 @@ const CreatePost = () => {
   const handleCreatePost = async () => {
     setLoading(true);
     try {
+      const Authorization = JSON.parse(localStorage.getItem("Token"));
       const res = await fetch(
         "https://thread-backend-hgrz.onrender.com/api/posts/create",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            token: Authorization,
           },
           body: JSON.stringify({
             postedBy: user._id,

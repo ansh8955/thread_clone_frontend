@@ -11,11 +11,12 @@ export const SettingsPage = () => {
       return;
 
     try {
+      const Authorization = JSON.parse(localStorage.getItem("Token"));
       const res = await fetch(
         "https://thread-backend-hgrz.onrender.com/api/users/freeze",
         {
           method: "PUT",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", token: Authorization },
         }
       );
       const data = await res.json();

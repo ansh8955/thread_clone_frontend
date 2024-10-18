@@ -42,12 +42,14 @@ const MessageInput = ({ setMessages }) => {
     setIsSending(true);
 
     try {
+      const Authorization = JSON.parse(localStorage.getItem("Token"));
       const res = await fetch(
         "https://thread-backend-hgrz.onrender.com/api/messages",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            token: Authorization,
           },
           body: JSON.stringify({
             message: messageText,

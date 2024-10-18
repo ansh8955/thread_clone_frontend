@@ -100,9 +100,16 @@ const MessageContainer = () => {
       setLoadingMessages(true);
       setMessages([]);
       try {
+        const Authorization = JSON.parse(localStorage.getItem("Token"));
         if (selectedConversation.mock) return;
         const res = await fetch(
-          `https://thread-backend-hgrz.onrender.com/api/messages/${selectedConversation.userId}`
+          `https://thread-backend-hgrz.onrender.com/api/messages/${selectedConversation.userId}`,
+          {
+            method: "GET",
+            headers: {
+              token: Authorization,
+            },
+          }
         );
         const data = await res.json();
         if (data.error) {
