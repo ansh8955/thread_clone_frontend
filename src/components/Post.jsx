@@ -22,7 +22,7 @@ const Post = ({ post, postedBy }) => {
     const getUser = async () => {
       try {
         const res = await fetch(
-          "https://thread-backend-hgrz.onrender.com/api/users/profile/" +
+          "https://thread-clone-backend-i9s9.onrender.com/api/users/profile/" +
             postedBy
         );
         const data = await res.json();
@@ -47,7 +47,7 @@ const Post = ({ post, postedBy }) => {
 
       const Authorization = JSON.parse(localStorage.getItem("Token"));
       const res = await fetch(
-        `https://thread-backend-hgrz.onrender.com/api/posts/${post._id}`,
+        `https://thread-clone-backend-i9s9.onrender.com/api/posts/${post._id}`,
         {
           method: "DELETE",
 

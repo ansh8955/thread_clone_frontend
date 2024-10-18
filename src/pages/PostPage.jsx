@@ -35,7 +35,7 @@ const PostPage = () => {
       setPosts([]);
       try {
         const res = await fetch(
-          `https://thread-backend-hgrz.onrender.com/api/posts/${pid}`
+          `https://thread-clone-backend-i9s9.onrender.com/api/posts/${pid}`
         );
         const data = await res.json();
         if (data.error) {
@@ -55,7 +55,7 @@ const PostPage = () => {
       if (!window.confirm("Are you sure you want to delete this post?")) return;
 
       const res = await fetch(
-        `https://thread-backend-hgrz.onrender.com/api/posts/${currentPost._id}`,
+        `https://thread-clone-backend-i9s9.onrender.com/api/posts/${currentPost._id}`,
         {
           method: "DELETE",
         }

@@ -103,7 +103,7 @@ const MessageContainer = () => {
         const Authorization = JSON.parse(localStorage.getItem("Token"));
         if (selectedConversation.mock) return;
         const res = await fetch(
-          `https://thread-backend-hgrz.onrender.com/api/messages/${selectedConversation.userId}`,
+          `https://thread-clone-backend-i9s9.onrender.com/api/messages/${selectedConversation.userId}`,
           {
             method: "GET",
             headers: {

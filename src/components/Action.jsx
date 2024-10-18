@@ -43,7 +43,7 @@ const Actions = ({ post }) => {
     try {
       const Authorization = JSON.parse(localStorage.getItem("Token"));
       const res = await fetch(
-        "https://thread-backend-hgrz.onrender.com/api/posts/like/" + post._id,
+        "https://thread-clone-backend-i9s9.onrender.com/api/posts/like/" + post._id,
         {
           method: "PUT",
           headers: {
@@ -95,7 +95,7 @@ const Actions = ({ post }) => {
     try {
       const Authorization = JSON.parse(localStorage.getItem("Token"));
       const res = await fetch(
-        "https://thread-backend-hgrz.onrender.com/api/posts/reply/" + post._id,
+        "https://thread-clone-backend-i9s9.onrender.com/api/posts/reply/" + post._id,
         {
           method: "PUT",
           headers: {

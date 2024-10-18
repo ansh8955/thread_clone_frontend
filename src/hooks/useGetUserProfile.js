@@ -11,7 +11,7 @@ const useGetUserProfile = () => {
 	useEffect(() => {
 		const getUser = async () => {
 			try {
-				const res = await fetch(`https://thread-backend-hgrz.onrender.com/api/users/profile/${username}`);
+				const res = await fetch(`https://thread-clone-backend-i9s9.onrender.com/api/users/profile/${username}`);
 				const data = await res.json();
 				if (data.error) {
 					showToast("Error", data.error, "error");

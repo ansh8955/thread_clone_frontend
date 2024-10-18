@@ -44,7 +44,7 @@ const MessageInput = ({ setMessages }) => {
     try {
       const Authorization = JSON.parse(localStorage.getItem("Token"));
       const res = await fetch(
-        "https://thread-backend-hgrz.onrender.com/api/messages",
+        "https://thread-clone-backend-i9s9.onrender.com/api/messages",
         {
           method: "POST",
           headers: {

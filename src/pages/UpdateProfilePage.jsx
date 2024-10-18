@@ -39,7 +39,7 @@ export default function UpdateProfilePage() {
     try {
       const Authorization = JSON.parse(localStorage.getItem("Token"));
       const res = await fetch(
-        `https://thread-backend-hgrz.onrender.com/api/users/update/${user._id}`,
+        `https://thread-clone-backend-i9s9.onrender.com/api/users/update/${user._id}`,
         {
           method: "PUT",
           headers: {
