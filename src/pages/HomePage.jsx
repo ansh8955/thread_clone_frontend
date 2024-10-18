@@ -15,7 +15,7 @@ const HomePage = () => {
       setLoading(true);
       setPosts([]);
       try {
-        const Authorization = localStorage.getItem("Token");
+        const Authorization = JSON.parse(localStorage.getItem("Token"));
         const res = await fetch(
           "https://thread-backend-hgrz.onrender.com/api/posts/feed",
           {
