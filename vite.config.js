@@ -11,7 +11,6 @@ export default defineConfig({
 			"/api": {
 				target: "https://thread-backend-hgrz.onrender.com",
 				changeOrigin: true,
-				secure: false,
 			},
 		},
 	},
