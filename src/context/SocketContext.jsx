@@ -15,23 +15,10 @@ export const SocketContextProvider = ({ children }) => {
   const user = useRecoilValue(userAtom);
 
   useEffect(() => {
-    if (!user?._id) {
-      console.warn(
-        "User ID is not available. Socket connection will not be established."
-      );
-      return;
-    }
-
-    // Replace "/" with your backend URL if backend is hosted separately
     const socket = io("https://thread-backend-hgrz.onrender.com", {
       query: {
-        userId: user._id,
+        userId: user?._id,
       },
-    });
-
-    // Handle connection errors
-    socket.on("connect_error", (err) => {
-      console.error("Socket connection error:", err);
     });
 
     setSocket(socket);
@@ -39,14 +26,7 @@ export const SocketContextProvider = ({ children }) => {
     socket.on("getOnlineUsers", (users) => {
       setOnlineUsers(users);
     });
-
-    // Clean up on component unmount
-    return () => {
-      if (socket) {
-        socket.disconnect();
-        console.log("Socket disconnected");
-      }
-    };
+    return () => socket && socket.close();
   }, [user?._id]);
 
   return (
