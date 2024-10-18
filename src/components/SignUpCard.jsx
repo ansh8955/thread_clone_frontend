@@ -50,13 +50,14 @@ export default function SignupCard() {
         }
       );
       const data = await res.json();
-      Cookies.set("jwt", data.Token, { expires: 15 });
+      // Cookies.set("jwt", data.Token, { expires: 15 });
       if (data.error) {
         showToast("Error", data.error, "error");
         return;
       }
 
       localStorage.setItem("user-threads", JSON.stringify(data));
+      localStorage.setItem("Token", data.Token);
 
       setUser(data);
     } catch (error) {

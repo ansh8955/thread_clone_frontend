@@ -12,8 +12,15 @@ const SuggestedUsers = () => {
     const getSuggestedUsers = async () => {
       setLoading(true);
       try {
+        const Authorization = localStorage.getItem("Token");
         const res = await fetch(
-          "https://thread-backend-hgrz.onrender.com/api/users/suggested"
+          "https://thread-backend-hgrz.onrender.com/api/users/suggested",
+          {
+            method: "GET",
+            headers: {
+              token: Authorization,
+            },
+          }
         );
         const data = await res.json();
         if (data.error) {
